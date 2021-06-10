@@ -8,16 +8,6 @@ config interface lan
 	option ifname	eth0
 	option type 	none
 	option proto	static
-	option ipaddr	192.168.1.1
-	option netmask	255.255.255.0
-
-config interface lan
-	option ifname	lan1
-	option type	none
-	option proto	static
-	option ipaddr	192.168.1.1
-	option netmask	255.255.255.0
-
 config interface debug
 	option ifname 	usb0
 	option type 	none

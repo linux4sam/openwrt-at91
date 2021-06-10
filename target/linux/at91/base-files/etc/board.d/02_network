@@ -7,6 +7,9 @@
 
 board_config_update
 
+lan_ip="192.168.1.1"
+lan_netmask="255.255.255.0"
+
 case "$(board_name)" in
 
 sama5d3_xplained)
@@ -15,6 +18,8 @@ sama5d3_xplained)
 
 sama5d2_icp)
 	ucidef_set_interface_lan "lan1"
+	uci set network.lan.proto="static"
+	uci set network.lan.ifname="lan1"
 	;;
 
 *)
@@ -22,6 +27,10 @@ sama5d2_icp)
 	;;
 
 esac
+
+uci set network.lan.ipaddr=$lan_ip
+uci set network.lan.netmask=$lan_netmask
+uci commit network
 
 board_config_flush
 
